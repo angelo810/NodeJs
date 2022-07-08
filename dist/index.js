@@ -16,6 +16,10 @@ const express_1 = __importDefault(require("express"));
 const config_1 = require("./config");
 const database_1 = require("./database");
 const router_1 = require("./router");
+const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
+const swagger_jsdoc_1 = __importDefault(require("swagger-jsdoc"));
+const swagger_1 = require("./swagger");
+const specs = (0, swagger_jsdoc_1.default)(swagger_1.options);
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         yield (0, database_1.connectMongoDB)();
@@ -25,6 +29,7 @@ function main() {
         server.listen(config_1.PORT, () => {
             console.log("Server Started");
         });
+        server.use("/api-doc", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(specs));
     });
 }
 main();

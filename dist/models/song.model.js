@@ -8,7 +8,7 @@ const songScheme = new mongoose_1.Schema({
     dateSong: { type: Date },
     name: { type: String },
     gender: { type: String },
-    timeSong: { type: Number }
+    visit: { type: Number }
 });
 //MODELO
 const SongModel = (0, mongoose_1.model)("SongModel", songScheme);

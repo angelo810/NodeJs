@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.listSong = exports.deleteSong = exports.updateSong = exports.retrieveSong = exports.createSong = void 0;
 const song_model_1 = require("../models/song.model");
 const createSong = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { artist, dateSong, name, gender, timeSong } = req.body;
-    const response = yield new SongController().create({ artist, dateSong, name, gender, timeSong });
+    const { artist, dateSong, name, gender, visit } = req.body;
+    const response = yield new SongController().create({ artist, dateSong, name, gender, visit });
     return res.status(response.status).json(response);
 });
 exports.createSong = createSong;
@@ -24,9 +24,9 @@ const retrieveSong = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 });
 exports.retrieveSong = retrieveSong;
 const updateSong = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { artist, dateSong, name, gender, timeSong } = req.body;
+    const { artist, dateSong, name, gender, visit } = req.body;
     const docId = req.params.id;
-    const response = yield new SongController().update(docId, { artist, dateSong, name, gender, timeSong });
+    const response = yield new SongController().update(docId, { artist, dateSong, name, gender, visit });
     return res.status(response.status).json(response);
 });
 exports.updateSong = updateSong;
@@ -91,7 +91,7 @@ class SongController {
                     dateSong: payload.dateSong,
                     name: payload.name,
                     gender: payload.gender,
-                    timeSong: payload.timeSong
+                    visit: payload.visit
                 } }).then(data => {
                 return {
                     message: "OK: Song updated",

@@ -5,7 +5,7 @@ export interface ISong{
     dateSong : null | Date;
     name: null | string;
     gender: string;
-    timeSong: number;
+    visit: number;
 }
 //ESQUEMA
 const songScheme = new Schema <ISong>({
@@ -13,7 +13,7 @@ const songScheme = new Schema <ISong>({
     dateSong: {type: Date},
     name :{type: String},
     gender: {type: String},
-    timeSong: {type: Number}
+    visit: {type: Number}
 });
 
 //MODELO
