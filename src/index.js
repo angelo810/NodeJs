@@ -14,11 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const server = (0, express_1.default)();
+
 server.listen(3000, () => {
-    console.log("Server running on port 3000");
+    console.log("Server running on port 3001");
 });
 server.get("/hello", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.status(200).json({
         message: "ok"
     });
+
 }));

@@ -3,8 +3,8 @@ import { IResponse } from "../models/response.model";
 import { ISong, SongModel } from "../models/song.model";
 
 export const createSong = async (req: Request, res: Response)=> {           
-    const { artist, dateSong, name, gender, timeSong } : ISong = req.body;
-    const response = await new SongController().create({ artist, dateSong, name, gender, timeSong });         
+    const { artist, dateSong, name, gender, visit } : ISong = req.body;
+    const response = await new SongController().create({ artist, dateSong, name, gender, visit });         
     return res.status(response.status).json(response);   
 }
 
@@ -15,9 +15,9 @@ export const retrieveSong = async (req: Request, res: Response) => {
  }
 
  export const updateSong = async (req: Request, res: Response)=> {           
-    const { artist, dateSong, name, gender, timeSong } : ISong = req.body;
+    const { artist, dateSong, name, gender, visit } : ISong = req.body;
     const docId : String = req.params.id; 
-    const response = await new SongController().update(docId, { artist, dateSong, name, gender, timeSong });         
+    const response = await new SongController().update(docId, { artist, dateSong, name, gender, visit });         
     return res.status(response.status).json(response);   
 }
 
@@ -79,7 +79,7 @@ class SongController {
             dateSong: payload.dateSong, 
             name: payload.name, 
             gender: payload.gender, 
-            timeSong: payload.timeSong
+            visit: payload.visit
           } }).then(data => {            
             return {
                 message: "OK: Song updated",
@@ -128,3 +128,5 @@ class SongController {
         });       
     }
 }
+
+  

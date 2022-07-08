@@ -1,4 +1,4 @@
-import { Application } from "express";
+import { Application, Router } from "express";
 import { createSong, deleteSong, listSong, retrieveSong, updateSong } from "./controllers/song.controller";
 
 export const router = (app: Application) => {
